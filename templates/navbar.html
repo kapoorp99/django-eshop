@@ -1,0 +1,48 @@
+<nav class="navbar sticky-top navbar-expand-lg navbar-dark bg-dark">
+ <!-- Company Logo -->
+  <a class="navbar-brand" href="/">
+    {% load static  %}
+    <img src="{% static 'navbar/images/logo.png' %}" alt="E-shop,shop more than just as shop" style="width:92px;">
+  </a>
+  <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+    <span class="navbar-toggler-icon"></span>
+  </button>
+
+  <div class="collapse navbar-collapse" id="navbarSupportedContent">
+    <ul class="navbar-nav mr-auto">
+      <li class="nav-item">
+        <a class="nav-link {% if request.path == homepage %}active{% endif %}" href="{% url 'homepage' %}">Homepage</a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link {% if request.path == fashion %}active{% endif %}" href="{% url 'fashion' %}">Fashion</a>
+      </li>
+		<li class="nav-item">
+        <a class="nav-link {% if request.path == mobiles %}active{% endif %}" href="{% url 'mobiles' %}">Mobiles</a>
+      </li>
+		<li class="nav-item">
+        <a class="nav-link {% if request.path == electronics %}active{% endif %}" href="{% url 'electronics' %}">Electronics</a>
+      </li>
+		<li class="nav-item">
+        <a class="nav-link {% if request.path == books %}active{% endif %}" href="{% url 'books' %}">Books</a>
+      </li>
+
+    </ul>
+    <form class="form-inline my-2 my-lg-0">
+      <input class="form-control mr-sm-2" type="search" placeholder="Search" aria-label="Search">
+      <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Search</button>
+    </form>
+  </div>
+    <div class="p-4">
+      <a href="/customers/login">Login</a>
+      <a href="/customers/logout">Logout</a>
+      <a href="/customers/signup">Sign Up</a>
+    </div>
+  <div class="mx-3 p-4">
+    <button title="My cart" id="cart_popover" type="button" class="btn btn-dark mx-2 border border-success rounded" data-trigger="hover" data-html="true" data-container="body" data-toggle="popover" data-placement="bottom" data-content="">
+      <a class="nav-link" href="{% url 'cart' %}">
+          <i class="fas fa-shopping-cart"></i>
+          Cart(<span id="cart">0</span>)
+      </a>
+    </button>
+  </div>
+</nav>

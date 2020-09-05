@@ -1,0 +1,6 @@
+{% if request.session.email %}
+<div>
+    <h2>Customer Details</h2>
+    <p>{{request.session.email }}</p>
+</div>
+{% endif %}
